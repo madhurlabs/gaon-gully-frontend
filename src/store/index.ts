@@ -1,6 +1,18 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
+interface Address {
+  _id: string;
+  fullName: string;
+  phone: string;
+  addressLine1: string;
+  addressLine2?: string;
+  city: string;
+  state: string;
+  pincode: string;
+  isDefault: boolean;
+}
+
 interface User {
   _id: string;
   name: string;
@@ -9,6 +21,7 @@ interface User {
   isEmailVerified: boolean;
   avatar?: { url: string };
   phone?: string;
+  addresses?: Address[];
 }
 
 interface AuthState {
